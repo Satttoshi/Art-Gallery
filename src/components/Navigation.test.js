@@ -1,10 +1,18 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Navigation from "../Navigation";
+import Navigation from "./Navigation";
 
-test("should render three navigation links", () => {
+test("renders three links", () => {
   const { getByText } = render(<Navigation />);
-  expect(getByText("Home")).toBeInTheDocument();
-  expect(getByText("Pieces")).toBeInTheDocument();
-  expect(getByText("Favorites")).toBeInTheDocument();
+  const spotlightLink = getByText("Spotlight");
+  const piecesLink = getByText("Pieces");
+  const favoritesLink = getByText("Favorites");
+
+  expect(spotlightLink.getAttribute("href")).toBe("/");
+  expect(piecesLink.getAttribute("href")).toBe("/art-pieces");
+  expect(favoritesLink.getAttribute("href")).toBe("/favorites");
+
+  // expect(spotlightLink.closest("Link")).toBeInTheDocument();
+  // expect(piecesLink.closest("Link")).toBeInTheDocument();
+  // expect(favoritesLink.closest("Link")).toBeInTheDocument();
 });
