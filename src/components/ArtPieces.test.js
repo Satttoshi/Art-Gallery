@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import ArtPieces from "./ArtPieces";
-import Image from "next/image";
 
 const data = [
   {
@@ -22,7 +21,7 @@ test("is image of artpieces rendered?", () => {
   render(<ArtPieces pieces={data} />);
   const img = screen.getByRole("img");
   expect(img).toBeInTheDocument();
-  expect(img).toHaveAttribute("src", data.imageSource);
+  expect(img).toHaveAttribute("src", data[0].imageSource);
 });
 
 test("is title of artpieces rendered?", () => {

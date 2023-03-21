@@ -1,14 +1,20 @@
-import ArtPiecePreview from "./ArtPiecesPreview";
+import { useRouter } from "next/router";
 
-export default function ArtPieceDetails({
-  pieces,
-  artslug,
-  image,
-  title,
-  artist,
-  genre,
-  year,
-}) {
-  const { image, title, artist, genre, year } = pieces;
-  return <ArtPiecePreview />;
+export default function ArtPieceDetails({ year, genre }) {
+  const router = useRouter();
+
+  return (
+    <>
+      <span>{year}</span>
+      <span>{genre}</span>
+      <button
+        type="button"
+        onClick={() => {
+          router.push("/art-pieces");
+        }}
+      >
+        BACK
+      </button>
+    </>
+  );
 }
