@@ -1,8 +1,8 @@
 import ArtPieces from "../src/components/ArtPieces";
 import ArtPiecePreview from "../src/components/ArtPiecesPreview";
 
-export default function HomePage({ pieces }) {
-  const randomIndex = Math.floor(Math.random() * (pieces.length + 1));
+export default function SpotlightPage({ pieces }) {
+  const randomIndex = Math.floor(Math.random() * pieces.length);
 
   return (
     <div>
