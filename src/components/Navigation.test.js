@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Navigation from "./Navigation";
+import Navigation from "../Navigation";
 
 test("renders three links", () => {
   const { getByText } = render(<Navigation />);
