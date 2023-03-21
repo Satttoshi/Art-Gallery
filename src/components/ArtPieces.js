@@ -1,4 +1,5 @@
 import ArtPiecePreview from "./ArtPiecesPreview";
+import Link from "next/link";
 import { uid } from "uid";
 
 export default function ArtPieces({ pieces }) {
@@ -12,6 +13,7 @@ export default function ArtPieces({ pieces }) {
               image={piece.imageSource}
               title={piece.name}
               artist={piece.artist}
+              artslug={piece.slug}
             />
           </li>
         );
