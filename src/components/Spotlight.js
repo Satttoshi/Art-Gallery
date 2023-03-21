@@ -9,6 +9,7 @@ export default function Spotlight({ pieces }) {
         image={pieces[randomIndex].imageSource}
         title={pieces[randomIndex].name}
         artist={pieces[randomIndex].artist}
+        artslug={pieces[randomIndex].slug}
       />
     </div>
   );
