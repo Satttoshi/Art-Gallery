@@ -29,13 +29,16 @@ export default function App({ Component, pageProps }) {
 
   const handleToggle = (slug) => {
     setFavorites((favorites) => {
+      // const info searches if slug exists in favorites array
       const info = favorites.find((piece) => piece.slug === slug);
+      // if info is truthy then:
       if (info) {
+        // Map current favorites array, search for the matching slug/id and switch boolean of isFavorite key
         return favorites.map((info) =>
           info.slug === slug ? { ...info, isFavorite: !info.isFavorite } : info
         );
       }
-      // If slug (element) doesn't exist in array do this:
+      // If slug (element) doesn't exist in array do this, add object {slug/id + isFavorite} to array and set it to true
       return [...favorites, { slug, isFavorite: true }];
     });
   };
