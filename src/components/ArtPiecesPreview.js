@@ -19,11 +19,16 @@ export default function ArtPiecePreview({
   artist,
   artslug,
   onFavorite,
+  favorites,
 }) {
   return (
     <>
       <h2>{title}</h2>
-      <FavoriteButton onFavorite={onFavorite} />
+      <FavoriteButton
+        onFavorite={onFavorite}
+        slug={artslug}
+        favorites={favorites}
+      />
       <StyledLink href={`/art-pieces/${artslug}`}>
         <Image src={image} alt={title} height={243} width={192} />
         <figcaption>{artist}</figcaption>

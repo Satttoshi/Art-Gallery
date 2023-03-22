@@ -1,5 +1,7 @@
 import Spotlight from "../src/components/Spotlight";
 
-export default function Home({ pieces, onFavorite }) {
-  return <Spotlight pieces={pieces} onFavorite={onFavorite} />;
+export default function Home({ pieces, onFavorite, favorites }) {
+  return (
+    <Spotlight pieces={pieces} onFavorite={onFavorite} favorites={favorites} />
+  );
 }

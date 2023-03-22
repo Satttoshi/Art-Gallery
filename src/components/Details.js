@@ -9,13 +9,19 @@ export default function Details({
   title,
   artist,
   onFavorite,
+  slug,
+  favorites,
 }) {
   const router = useRouter();
 
   return (
     <>
       <h2>{title}</h2>
-      <FavoriteButton onFavorite={onFavorite} />
+      <FavoriteButton
+        onFavorite={onFavorite}
+        slug={slug}
+        favorites={favorites}
+      />
       <Image src={image} alt={title} height={400} width={400} />
       <figcaption>{artist}</figcaption>
       <span>{year}</span>
