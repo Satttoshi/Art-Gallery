@@ -1,9 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
+import { useEffect, useState } from "react";
 
 export default function Spotlight({ pieces, onFavorite, favorites }) {
-  const randomIndex = Math.floor(Math.random() * pieces.length);
+  const [randomIndex, setRandomIndex] = useState(0);
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * pieces.length);
+    setRandomIndex(randomIndex);
+  }, [pieces]);
 
   return (
     <>
