@@ -1,6 +1,5 @@
-import ArtPieceDetails from "../../src/components/ArtPieceDetails";
+import Details from "../../src/components/Details";
 import { useRouter } from "next/router";
-import ArtPiecePreview from "../../src/components/ArtPiecesPreview";
 
 export default function DetailsPage({ pieces }) {
   const router = useRouter();
@@ -14,13 +13,13 @@ export default function DetailsPage({ pieces }) {
 
   return (
     <>
-      <ArtPiecePreview
+      <Details
+        year={piece.year}
+        genre={piece.genre}
         image={piece.imageSource}
         title={piece.name}
         artist={piece.artist}
-        artslug={piece.slug}
       />
-      <ArtPieceDetails year={piece.year} genre={piece.genre} />
     </>
   );
 }
