@@ -29,7 +29,10 @@ export default function FavoriteButton({ favorites, onFavorite, slug }) {
     <StyledButton
       fill={isFavorite ? "black" : "hotpink"}
       type="button"
-      onClick={() => onFavorite(slug)}
+      onClick={(event) => {
+        event.stopPropagation();
+        onFavorite(slug);
+      }}
     >
       <Heart />
     </StyledButton>
