@@ -3,10 +3,12 @@ import Heart from "../../public/heart.svg";
 
 const StyledButton = styled.button`
   position: absolute;
-
+  right: 0px;
+  top: 10px;
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 100;
 
   svg {
     fill: ${({ fill }) => fill};

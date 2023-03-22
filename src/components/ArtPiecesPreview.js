@@ -2,15 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import styled, { css } from "styled-components";
 import FavoriteButton from "./FavoriteButton";
+import StyledImageContainer from "./StyledImageContainer";
 
 const StyledLink = styled(Link)`
-  background-color: darkblue;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: fit-content;
   text-decoration: none;
-  color: white;
+  color: gray;
+`;
+
+const StyledImage = styled(Image)`
+  position: relative;
+  width: 100%;
 `;
 
 export default function ArtPiecePreview({
@@ -22,17 +28,26 @@ export default function ArtPiecePreview({
   favorites,
 }) {
   return (
-    <>
+    <StyledImageContainer>
       <h2>{title}</h2>
-      <FavoriteButton
-        onFavorite={onFavorite}
-        slug={artslug}
-        favorites={favorites}
-      />
+
       <StyledLink href={`/art-pieces/${artslug}`}>
-        <Image src={image} alt={title} height={243} width={192} />
+        <FavoriteButton
+          onFavorite={onFavorite}
+          slug={artslug}
+          favorites={favorites}
+        />
+        <div>
+          <StyledImage
+            src={image}
+            alt={title}
+            height={243}
+            width={192}
+          ></StyledImage>
+        </div>
+
         <figcaption>{artist}</figcaption>
       </StyledLink>
-    </>
+    </StyledImageContainer>
   );
 }

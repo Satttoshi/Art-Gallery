@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
+import StyledImageContainer from "./StyledImageContainer";
 
 export default function Details({
   year,
@@ -15,7 +16,7 @@ export default function Details({
   const router = useRouter();
 
   return (
-    <>
+    <StyledImageContainer>
       <h2>{title}</h2>
       <FavoriteButton
         onFavorite={onFavorite}
@@ -34,6 +35,6 @@ export default function Details({
       >
         BACK
       </button>
-    </>
+    </StyledImageContainer>
   );
 }
