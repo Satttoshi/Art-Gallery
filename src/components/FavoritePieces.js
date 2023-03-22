@@ -1,10 +1,18 @@
 import ArtPiecePreview from "./ArtPiecesPreview";
 import StyledList from "./StyledList";
 
-export default function ArtPieces({ pieces, onFavorite, favorites }) {
+export default function FavoritePieces({ pieces, onFavorite, favorites }) {
+  const slugsOfFavoritePieces = favorites
+    .filter((favorite) => favorite.isFavorite)
+    .map((favoritePiece) => favoritePiece.slug);
+
+  const favoritePieces = pieces.filter((piece) =>
+    slugsOfFavoritePieces.includes(piece.slug)
+  );
+
   return (
     <StyledList>
-      {pieces.map((piece) => {
+      {favoritePieces.map((piece) => {
         // title, artist, bild
         return (
           <li key={piece.slug}>

@@ -1,7 +1,10 @@
-export default function Favorites() {
+import FavoritePieces from "../src/components/FavoritePieces";
+export default function Favorites({ pieces, onFavorite, favorites }) {
   return (
-    <div>
-      <h1>test fav page</h1>
-    </div>
+    <FavoritePieces
+      pieces={pieces}
+      onFavorite={onFavorite}
+      favorites={favorites}
+    />
   );
 }

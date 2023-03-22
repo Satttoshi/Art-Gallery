@@ -27,7 +27,7 @@ export default function FavoriteButton({ favorites, onFavorite, slug }) {
 
   return (
     <StyledButton
-      fill={isFavorite ? "black" : "hotpink"}
+      fill={isFavorite ? "hotpink" : "black"}
       type="button"
       onClick={(event) => {
         event.stopPropagation();
