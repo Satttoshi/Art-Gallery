@@ -12,11 +12,11 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
+export default function FavoriteButton({ isFavorite, onFavorite, slug }) {
   /* const bookmarkButton = isBookmarked ? bookMarkFilled : bookMarkEmpty; */
 
   return (
-    <StyledButton>
+    <StyledButton type="button" onClick={() => onFavorite(slug)}>
       <Heart />
     </StyledButton>
   );

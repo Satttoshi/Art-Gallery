@@ -13,11 +13,17 @@ const StyledLink = styled(Link)`
   color: white;
 `;
 
-export default function ArtPiecePreview({ image, title, artist, artslug }) {
+export default function ArtPiecePreview({
+  image,
+  title,
+  artist,
+  artslug,
+  onFavorite,
+}) {
   return (
     <>
       <h2>{title}</h2>
-      <FavoriteButton />
+      <FavoriteButton onFavorite={onFavorite} />
       <StyledLink href={`/art-pieces/${artslug}`}>
         <Image src={image} alt={title} height={243} width={192} />
         <figcaption>{artist}</figcaption>

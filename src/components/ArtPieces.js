@@ -1,6 +1,6 @@
 import ArtPiecePreview from "./ArtPiecesPreview";
 
-export default function ArtPieces({ pieces }) {
+export default function ArtPieces({ pieces, onFavorite }) {
   return (
     <ul>
       {pieces.map((piece) => {
@@ -12,6 +12,7 @@ export default function ArtPieces({ pieces }) {
               title={piece.name}
               artist={piece.artist}
               artslug={piece.slug}
+              onFavorite={onFavorite}
             />
           </li>
         );
