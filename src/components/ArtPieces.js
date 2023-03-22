@@ -1,6 +1,4 @@
 import ArtPiecePreview from "./ArtPiecesPreview";
-import Link from "next/link";
-import { uid } from "uid";
 
 export default function ArtPieces({ pieces }) {
   return (
@@ -8,7 +6,7 @@ export default function ArtPieces({ pieces }) {
       {pieces.map((piece) => {
         // title, artist, bild
         return (
-          <li key={uid()}>
+          <li key={piece.slug}>
             <ArtPiecePreview
               image={piece.imageSource}
               title={piece.name}
