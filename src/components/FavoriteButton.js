@@ -7,16 +7,30 @@ const StyledButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+
+  svg {
+    fill: ${({ fill }) => fill};
+    width: 36px;
+    height: 36px;
+  }
+
   svg:hover {
-    fill: hotpink;
+    stroke: hotpink;
   }
 `;
 
-export default function FavoriteButton({ isFavorite, onFavorite, slug }) {
-  /* const bookmarkButton = isBookmarked ? bookMarkFilled : bookMarkEmpty; */
+export default function FavoriteButton({ favorites, onFavorite, slug }) {
+  // Compare current slug and check isFavorite boolean value
+  const { isFavorite } = favorites.find((piece) => piece.slug === slug) ?? {
+    isFavorite: false,
+  };
 
   return (
-    <StyledButton type="button" onClick={() => onFavorite(slug)}>
+    <StyledButton
+      fill={isFavorite ? "black" : "hotpink"}
+      type="button"
+      onClick={() => onFavorite(slug)}
+    >
       <Heart />
     </StyledButton>
   );
