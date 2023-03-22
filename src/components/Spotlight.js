@@ -6,9 +6,6 @@ export default function Spotlight({ pieces }) {
 
   return (
     <Link href={`/art-pieces/${pieces[randomIndex].slug}`}>
-      <h2>
-        <a>{pieces[randomIndex].name}</a>
-      </h2>
       <Image
         src={pieces[randomIndex].imageSource}
         alt={pieces[randomIndex].name}
