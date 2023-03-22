@@ -6,9 +6,7 @@ export default function Details({ year, genre, image, title, artist }) {
 
   return (
     <>
-      <h2>
-        <a>{title}</a>
-      </h2>
+      <h2>{title}</h2>
       <Image src={image} alt={title} height={400} width={400} />
       <figcaption>{artist}</figcaption>
       <span>{year}</span>
