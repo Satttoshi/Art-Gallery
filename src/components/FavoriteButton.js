@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function FavoriteButton() {
+export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
   /* const bookmarkButton = isBookmarked ? bookMarkFilled : bookMarkEmpty; */
 
   return (
