@@ -24,8 +24,8 @@ export default function App({ Component, pageProps }) {
     return <span>API ERROR, trying to refetch ...</span>;
   }
 
-  const newArray = data.map(() => {
-    return { ...data, isActive: false };
+  const newArray = data.map((piece) => {
+    return { ...piece, isActive: false };
   });
 
   /*  [{ data, isActive: false }]; */
@@ -35,12 +35,11 @@ export default function App({ Component, pageProps }) {
     updateArtPieceInfo(data);
   }, []);
  */
-  console.log(artPieceInfo);
-
+  console.log("oldArray:", data);
   return (
     <Layout>
       <GlobalStyle />
-      <Component {...pageProps} pieces={data} />
+      <Component {...pageProps} pieces={newArray} />
       <Navigation />
     </Layout>
   );
