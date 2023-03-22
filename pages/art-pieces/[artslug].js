@@ -1,7 +1,7 @@
 import Details from "../../src/components/Details";
 import { useRouter } from "next/router";
 
-export default function DetailsPage({ pieces }) {
+export default function DetailsPage({ pieces, onFavorite }) {
   const router = useRouter();
   const { artslug } = router.query;
 
@@ -14,6 +14,7 @@ export default function DetailsPage({ pieces }) {
   return (
     <>
       <Details
+        onFavorite={onFavorite}
         year={piece.year}
         genre={piece.genre}
         image={piece.imageSource}
