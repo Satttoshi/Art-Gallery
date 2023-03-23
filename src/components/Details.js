@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
-import StyledImageContainer_Detail from "./StyledImageContainer";
+import { StyledImageContainer_Detail } from "./StyledImageContainer";
 
 export default function Details({
   year,

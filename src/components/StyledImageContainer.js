@@ -10,8 +10,9 @@ const StyledImageContainer = styled.div`
   filter: drop-shadow(0px 0px 3px white);
 `;
 
-const StyledImageContainer_Detail = styled(StyledImageContainer)`
-  width: fit-content;
+export const StyledImageContainer_Detail = styled(StyledImageContainer)`
+  width: 400px;
 `;
 
 export default StyledImageContainer;
+// export { StyledImageContainer_Detail };
