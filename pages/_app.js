@@ -8,6 +8,13 @@ import useLocalStorageState from "use-local-storage-state";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps }) {
+  const [lastPage, setLastPage] = useState("");
+  console.log("lPage:", lastPage);
+
+  function handleLastPage(string) {
+    setLastPage(string);
+  }
+
   const { data, error, isLoading, mutate } = useSWR(
     "https://example-apis.vercel.app/api/art",
     fetcher
@@ -53,8 +60,10 @@ export default function App({ Component, pageProps }) {
         onFavorite={handleToggle}
         pieces={data}
         favorites={favorites}
+        lastPage={lastPage}
+        setLastPage={handleLastPage}
       />
-      <Navigation />
+      <Navigation setLastPage={setLastPage} />
     </Layout>
   );
 }

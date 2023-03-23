@@ -17,7 +17,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     display: grid;
-    grid-template-columns:200px;
+    grid-template-columns:fitcontent;
     grid: center;
     color: hotpink;
     text-align: center;

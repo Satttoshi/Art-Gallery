@@ -5,8 +5,13 @@ const StyledImageContainer = styled.div`
   border-radius: 20px;
   margin-bottom: 20px;
   position: relative;
-  border: 2px solid orange;
-  box-shadow: 0px 20px pink;
+  margin-top: 50px;
+  border: 0px solid orange;
+  filter: drop-shadow(0px 0px 3px white);
+`;
+
+const StyledImageContainer_Detail = styled(StyledImageContainer)`
+  width: fit-content;
 `;
 
 export default StyledImageContainer;

@@ -1,7 +1,21 @@
 import Spotlight from "../src/components/Spotlight";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+export default function Home({ pieces, onFavorite, favorites, setLastPage }) {
+  const router = useRouter();
+  const currentPage = router.asPath;
+  console.log("currentpage:", currentPage);
 
-export default function Home({ pieces, onFavorite, favorites }) {
+  useEffect(() => {
+    setLastPage(currentPage);
+  }, [pieces]);
+
   return (
-    <Spotlight pieces={pieces} onFavorite={onFavorite} favorites={favorites} />
+    <Spotlight
+      setLastPage={setLastPage}
+      pieces={pieces}
+      onFavorite={onFavorite}
+      favorites={favorites}
+    />
   );
 }

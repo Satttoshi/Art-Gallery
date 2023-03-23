@@ -11,14 +11,17 @@ const StyledLink = styled(Link)`
   align-items: center;
   width: fit-content;
   text-decoration: none;
-  color: gray;
 `;
 
 const StyledImage = styled(Image)`
   position: relative;
-  width: 100%;
+  width: 300px;
 `;
 
+const StyledH2 = styled.h2`
+  color: pink;
+  max-width: 300px;
+`;
 export default function ArtPiecePreview({
   image,
   title,
@@ -26,17 +29,18 @@ export default function ArtPiecePreview({
   artslug,
   onFavorite,
   favorites,
+  setLastPage,
+  currentPage,
 }) {
   return (
     <StyledImageContainer>
-      <h2>{title}</h2>
-
+      <StyledH2>{title}</StyledH2>
+      <FavoriteButton
+        onFavorite={onFavorite}
+        slug={artslug}
+        favorites={favorites}
+      />
       <StyledLink href={`/art-pieces/${artslug}`}>
-        <FavoriteButton
-          onFavorite={onFavorite}
-          slug={artslug}
-          favorites={favorites}
-        />
         <div>
           <StyledImage
             src={image}

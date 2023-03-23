@@ -1,7 +1,13 @@
 import Details from "../../src/components/Details";
 import { useRouter } from "next/router";
 
-export default function DetailsPage({ pieces, onFavorite, favorites }) {
+export default function DetailsPage({
+  pieces,
+  onFavorite,
+  favorites,
+  lastPage,
+  setLastPage,
+}) {
   const router = useRouter();
   const { artslug } = router.query;
 
@@ -22,6 +28,8 @@ export default function DetailsPage({ pieces, onFavorite, favorites }) {
         artist={piece.artist}
         slug={piece.slug}
         favorites={favorites}
+        lastPage={lastPage}
+        setLastPage={setLastPage}
       />
     </>
   );
