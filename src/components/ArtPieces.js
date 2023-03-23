@@ -1,7 +1,13 @@
 import ArtPiecePreview from "./ArtPiecesPreview";
 import StyledList from "./StyledList";
 
-export default function ArtPieces({ pieces, onFavorite, favorites }) {
+export default function ArtPieces({
+  pieces,
+  onFavorite,
+  favorites,
+  lastPage,
+  setLastPage,
+}) {
   return (
     <StyledList>
       {pieces.map((piece) => {
@@ -15,6 +21,8 @@ export default function ArtPieces({ pieces, onFavorite, favorites }) {
               artslug={piece.slug}
               onFavorite={onFavorite}
               favorites={favorites}
+              lastPage={lastPage}
+              setLastPage={setLastPage}
             />
           </li>
         );

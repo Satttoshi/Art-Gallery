@@ -2,8 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
 import { useEffect, useState } from "react";
+import StyledImageContainer from "./StyledImageContainer";
+import styled from "styled-components";
 
-export default function Spotlight({ pieces, onFavorite, favorites }) {
+const SpotLightImage = styled(Image)`
+  border-radius: 20px;
+  margin: 0;
+  padding: 0;
+`;
+
+export default function Spotlight({
+  pieces,
+  onFavorite,
+  favorites,
+  setLastPage,
+}) {
   const [randomIndex, setRandomIndex] = useState(0);
 
   useEffect(() => {
@@ -13,20 +26,27 @@ export default function Spotlight({ pieces, onFavorite, favorites }) {
 
   return (
     <>
-      <FavoriteButton
-        onFavorite={onFavorite}
-        slug={pieces[randomIndex].slug}
-        favorites={favorites}
-      />
-      <Link href={`/art-pieces/${pieces[randomIndex].slug}`}>
-        <Image
-          src={pieces[randomIndex].imageSource}
-          alt={pieces[randomIndex].name}
-          height={700}
-          width={500}
+      <StyledImageContainer>
+        <FavoriteButton
+          onFavorite={onFavorite}
+          slug={pieces[randomIndex].slug}
+          favorites={favorites}
         />
-        <figcaption>{pieces[randomIndex].artist}</figcaption>
-      </Link>
+        <Link
+          onClick={() => {
+            setLastPage("/");
+          }}
+          href={`/art-pieces/${pieces[randomIndex].slug}`}
+        >
+          <SpotLightImage
+            src={pieces[randomIndex].imageSource}
+            alt={pieces[randomIndex].name}
+            height={500}
+            width={300}
+          />
+        </Link>
+      </StyledImageContainer>
+      <figcaption>{pieces[randomIndex].artist}</figcaption>
     </>
   );
 }
